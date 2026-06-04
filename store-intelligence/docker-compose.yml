@@ -1,0 +1,52 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/data
+      - ./pipeline:/pipeline
+    environment:
+      - DB_PATH=/data/store_intelligence.db
+      - POS_CSV_PATH=/data/pos_transactions.csv
+      - LOG_LEVEL=INFO
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - store_net
+
+  # Optional: runs detection pipeline on startup if VIDEO_DIR is set
+  pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile.pipeline
+    volumes:
+      - ./data:/data
+      - ./pipeline:/pipeline
+    environment:
+      - VIDEO_DIR=/data/videos
+      - API_URL=http://api:8000
+      - STORE_ID=ST1008
+    depends_on:
+      api:
+        condition: service_healthy
+    profiles:
+      - pipeline   # run with: docker compose --profile pipeline up
+    networks:
+      - store_net
+
+networks:
+  store_net:
+    driver: bridge
+
+volumes:
+  data:

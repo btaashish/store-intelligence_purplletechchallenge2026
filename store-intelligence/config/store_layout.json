@@ -1,0 +1,95 @@
+{
+  "store_id": "ST1008",
+  "store_name": "Purplle_Mumbai_1076",
+  "city": "Mumbai",
+  "address": "Store 1076, Mumbai",
+  "open_hours": { "start": "10:00", "end": "22:00" },
+  "cameras": {
+    "cam1": {
+      "camera_id": "cam1",
+      "type": "entry_exit",
+      "description": "Entry/Exit threshold — main customer entry point",
+      "zones_covered": ["ENTRY_ZONE"],
+      "entry_exit_capable": true,
+      "entry_line_y_ratio": 0.85,
+      "entry_line_x1_ratio": 0.3,
+      "entry_line_x2_ratio": 0.75
+    },
+    "CAM2": {
+      "camera_id": "CAM2",
+      "type": "main_floor",
+      "description": "Left Shelf zone — PURPLLE_MUM_1076_Z01",
+      "zones_covered": ["PURPLLE_MUM_1076_Z01"],
+      "entry_exit_capable": false
+    },
+    "CAM3": {
+      "camera_id": "CAM3",
+      "type": "main_floor",
+      "description": "Centre Shelf zone — PURPLLE_MUM_1076_Z02",
+      "zones_covered": ["PURPLLE_MUM_1076_Z02"],
+      "entry_exit_capable": false
+    },
+    "CAM4": {
+      "camera_id": "CAM4",
+      "type": "main_floor",
+      "description": "Right Shelf zone — PURPLLE_MUM_1076_Z03",
+      "zones_covered": ["PURPLLE_MUM_1076_Z03"],
+      "entry_exit_capable": false
+    },
+    "PURPLLE_MUM_1076_CAM6": {
+      "camera_id": "PURPLLE_MUM_1076_CAM6",
+      "type": "billing",
+      "description": "Billing Counter Queue — PURPLLE_MUM_1076_Z_BILLING_01",
+      "zones_covered": ["PURPLLE_MUM_1076_Z_BILLING_01"],
+      "entry_exit_capable": false,
+      "is_billing": true
+    }
+  },
+  "zones": {
+    "ENTRY_ZONE": {
+      "zone_id": "ENTRY_ZONE",
+      "label": "Entry / Exit",
+      "camera": "cam1",
+      "sku_zone": null,
+      "is_billing": false
+    },
+    "PURPLLE_MUM_1076_Z01": {
+      "zone_id": "PURPLLE_MUM_1076_Z01",
+      "label": "Left Shelf",
+      "camera": "CAM2",
+      "sku_zone": "LEFT_SHELF",
+      "is_billing": false,
+      "zone_type": "SHELF",
+      "is_revenue_zone": true,
+      "brands": ["Faces Canada", "Renee", "Swiss Beauty", "Maybelline", "Alps Goodness", "NY Bae"]
+    },
+    "PURPLLE_MUM_1076_Z02": {
+      "zone_id": "PURPLLE_MUM_1076_Z02",
+      "label": "Centre Shelf",
+      "camera": "CAM3",
+      "sku_zone": "CENTRE_SHELF",
+      "is_billing": false,
+      "zone_type": "SHELF",
+      "is_revenue_zone": true,
+      "brands": ["Good Vibes", "DERMDOC", "Foxtale", "Juicy Chemistry", "Beauty of Joseon", "COSRX", "Round Lab"]
+    },
+    "PURPLLE_MUM_1076_Z03": {
+      "zone_id": "PURPLLE_MUM_1076_Z03",
+      "label": "Right Shelf",
+      "camera": "CAM4",
+      "sku_zone": "RIGHT_SHELF",
+      "is_billing": false,
+      "zone_type": "SHELF",
+      "is_revenue_zone": true,
+      "brands": ["Lakme", "Garnier", "Neutrogena", "Lotus Herbals", "Carmesi", "Bare Anatomy", "GUBB", "CUFFS N LASHES"]
+    },
+    "PURPLLE_MUM_1076_Z_BILLING_01": {
+      "zone_id": "PURPLLE_MUM_1076_Z_BILLING_01",
+      "label": "Billing Counter Queue",
+      "camera": "PURPLLE_MUM_1076_CAM6",
+      "sku_zone": null,
+      "is_billing": true,
+      "zone_type": "BILLING"
+    }
+  }
+}

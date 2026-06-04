@@ -1,0 +1,33 @@
+# Video files - must not be committed (challenge requirement)
+*.mp4
+*.avi
+*.mov
+
+# Database
+*.db
+*.db-wal
+*.db-shm
+
+# Events output
+data/events/
+data/pos_transactions.csv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Docker
+.docker/
+
+# Logs
+*.log
+nohup.out
+
+# IDE
+.vscode/
+.idea/

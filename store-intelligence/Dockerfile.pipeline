@@ -1,0 +1,23 @@
+FROM python:3.11-slim
+
+WORKDIR /pipeline
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY pipeline/ .
+COPY config/ /config/
+
+ENV PYTHONUNBUFFERED=1
+
+CMD ["bash", "/pipeline/run.sh", \
+     "/data/videos", \
+     "http://api:8000", \
+     "/data/events", \
+     "ST1008"]
