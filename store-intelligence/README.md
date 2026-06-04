@@ -1,6 +1,20 @@
 # Store Intelligence System
-
 **End-to-end CCTV → live analytics pipeline for Purplle's Mumbai store (ST1008 / Store 1076).**
+
+An end-to-end retail analytics platform that converts raw CCTV footage into structured customer-behaviour events and real-time store intelligence.
+
+The system processes entry, floor, and billing-area camera feeds, generates visitor activity events, correlates them with POS transactions, and exposes operational metrics through a FastAPI-based Intelligence API.
+
+Key capabilities include:
+
+Visitor entry and exit detection
+Zone visit and dwell analytics
+Billing queue monitoring
+Re-entry detection
+POS conversion tracking
+Funnel analytics
+Heatmap generation
+Operational anomaly detection
 
 ## Quick Start
 
